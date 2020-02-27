@@ -1,12 +1,12 @@
 # Intro R Workshop
-Materials for BCCHRI R Workshop
 
-Date: Thursday, March 5th, 9am-1pm
+
+**Date: Thursday, March 5th, 9am-1pm**
 
 
 This is the repo that will house our Introduction to R workshop materials. We have developed this workshop after running the UBC R Study Group for many years, as well as teaching/ helping at various Software Carpentry Workshops.
 
-Our lesson plan consists of the following:
+**Our lesson plan consists of the following:**
 1) Introducing learners to R Studio, working directory organization and R Project
 2) How to import data into R?
 3) How to munge your dataframe using dplyr?
@@ -14,10 +14,12 @@ Our lesson plan consists of the following:
 5) Beautiful figures with ggplot2
 6) Wrap-up exercises
 
-Before the workshop, please make sure to install the following:
-1) R [https://www.r-project.org/]
-2) RStudio [https://www.rstudio.com/products/rstudio/download/]
-3) R package: `tidyverse` (by typing `install.packages("tidyverse")`)
+**Before the workshop, please make sure to install the following:**
+1) R from CRAN: [https://www.r-project.org/]
+2) RStudio: [https://www.rstudio.com/products/rstudio/download/]
+3) Main R package: `tidyverse` (by typing `install.packages("tidyverse")`)
+
+If you receive an error when trying to run the code `install.packages("tidyverse")`, please make sure your R version is at least 3.6 (this information will be displayed in the console when you first open RStudio). If your version is 3.5 or lower, please use this link to go to CRAN and download the latest version of RStudio.
 
 
 ### Code of Conduct
