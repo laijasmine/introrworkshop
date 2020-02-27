@@ -19,7 +19,7 @@ This is the repo that will house our Introduction to R workshop materials. We ha
 2) RStudio: [https://www.rstudio.com/products/rstudio/download/]
 3) Main R package: `tidyverse` (by typing `install.packages("tidyverse")`)
 
-If you receive an error when trying to run the code `install.packages("tidyverse")`, please make sure your R version is at least 3.6 (this information will be displayed in the console when you first open RStudio). If your version is 3.5 or lower, please use this link to go to CRAN and download the latest version of RStudio.
+If you receive an error when trying to run the code `install.packages("tidyverse")` (something like "Package is not available for R version x.x"), please make sure your R version is at least 3.6 (this information will be displayed in the console when you first open RStudio). If your version is 3.5 or lower, please use this link to go to CRAN and download the latest version of R.
 
 
 ### Code of Conduct
@@ -27,6 +27,7 @@ If you receive an error when trying to run the code `install.packages("tidyverse
 Study Group events are community events intended for networking and collaboration as well as learning. We value the participation of every member of the scientific community and want all attendees to have an enjoyable and fulfilling experience. Accordingly, all attendees are expected to show respect and courtesy to other attendees throughout the event and in interactions online associated with Study Group.
 
 To make clear what is expected, everyone taking part in Study Group events and discussions—instructors, helpers, organizers, and learners—is required to conform to the following Code of Conduct. Organizers will enforce this code throughout events, but you may also contact us privately; all communication will be treated as confidential.
+
 
 ### The Short Version
 
@@ -37,6 +38,7 @@ To make clear what is expected, everyone taking part in Study Group events and d
 * Attendees violating these rules may be asked to leave the event at the sole discretion of the event organizers without a refund of any charge that may have been levied.
 
 Thank you for helping make this a welcoming, friendly event for all.
+
 
 ### The Longer Version
 
