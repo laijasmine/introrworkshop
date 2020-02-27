@@ -19,7 +19,7 @@ This is the repo that will house our Introduction to R workshop materials. We ha
 2) RStudio: [https://www.rstudio.com/products/rstudio/download/]
 3) Main R package: `tidyverse` (by typing `install.packages("tidyverse")`)
 
-If you receive an error when trying to run the code `install.packages("tidyverse")` (something like "Package is not available for R version x.x"), please make sure your R version is at least 3.6 (this information will be displayed in the console when you first open RStudio). If your version is 3.5 or lower, please use this link to go to CRAN and download the latest version of R.
+If you receive an error when trying to run the code `install.packages("tidyverse")` (something like "Package is not available for R version x.x"), please make sure your R version is at least 3.6 (this information will be displayed in the console when you first open RStudio). If your version is 3.5 or lower, please use [this link](https://www.r-project.org/) to go to CRAN and download the latest version of R.
 
 
 ### Code of Conduct
