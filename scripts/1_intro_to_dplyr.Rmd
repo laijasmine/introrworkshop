@@ -64,7 +64,10 @@ head(gapminder, n = 10)
 <br>
 
 ## Quick aside on tibbles and data frames
-In R, one of the main types of objects/variables we're going to be working with is a **data frame**. This is much like a table you would view in Excel, where column represent variables or measures and 
+In R, one of the main types of objects/variables we're going to be working with
+is a **data frame**. This is much like a table you would view in Excel, where
+column represent variables or measures and rows represent measurements, samples,
+or observations.
 
 <br>
 

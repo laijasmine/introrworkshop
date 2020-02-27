@@ -17,7 +17,8 @@ between gene IDs and names, and create a plot.
 The points below outline in more detail what should be done:
 
 * Import the data (example_human_genes.csv) using the `read.csv()` function
-* Create a new column containing the absolute absolute fold change (Hint: use the `abs()` function)
+* Create a new column containing the absolute absolute fold change (Hint: use
+the `abs()` function)
 * Filter the genes on the follow conditions:
   * Adjusted p-value less than or equal to 0.05
   * Absolute fold change greater than or equal to `log2(1.5)`
@@ -25,12 +26,14 @@ The points below outline in more detail what should be done:
 Next, use the provided mapping table (conversion_table.csv) to map between
 Ensembl ID and HGNC symbol.
 
-Once the data has been filtered, create a plot with log2 fold change on the x-axis and adjusted p-value on the x-axis
+Once the data has been filtered, create a plot with log2 fold change on the
+x-axis and adjusted p-value on the x-axis
 
 * NOTE: use the `-log10(adjusted_pvalue)` for the plot
 * Colour the points by adjusted p-value
 * Set the transparancy to 70% (ALL points)
-* Add a title to the plot, and change the axis and legend titles to be more "readable"
+* Add a title to the plot, and change the axis and legend titles to be more
+"readable"
 
 Additionally, generate a histogram of the base mean for each genes. Set the
 number of bins to 50. For an extra challenge, change the theme to black and
