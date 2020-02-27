@@ -311,8 +311,8 @@ from "y".
 
 First let's load some simple example data to play with:
 ```{r left_join_ex}
-fruits1 <- read.csv("../data/fruits_table1.csv")
-fruits2 <- read.csv("../data/fruits_table2.csv")
+fruits1 <- read.csv("../data/fruits_table1.csv", stringsAsFactors = FALSE)
+fruits2 <- read.csv("../data/fruits_table2.csv", stringsAsFactors = FALSE)
 
 head(fruits1)
 head(fruits2)
@@ -346,7 +346,8 @@ country, but only considering data from 1980 and onwards. We can accomplish this
 all in one step as follows.
 
 ```{r}
-# select() columns, filter() by year, calculate GDP in billions, mean() and sd() of GDP in billions
+# select() columns, filter() by year, calculate GDP in billions, mean() and sd()
+# of GDP in billions
 gapminder_final <- gapminder %>% 
     select(country, year, pop, gdpPercap) %>% 
     filter(year >= 1980) %>% 

@@ -61,19 +61,15 @@ Let's load our required packages:
 library(tidyverse)
 ```
 
-```{r echo=FALSE}
-library(here)
-```
-
 
 Let's read these dataframes in:
 
 ```{r}
 fship <- read.csv("../data/The_Fellowship_Of_The_Ring.csv")
 
-ttow <- read.csv("../data/The_Fellowship_Of_The_Ring.csv")
+ttow <- read.csv("../data/The_Two_Towers.csv")
 
-rking <- read.csv("../data/The_Fellowship_Of_The_Ring.csv")
+rking <- read.csv("../data/The_Return_Of_The_King.csv")
 ```
 
 
@@ -96,7 +92,7 @@ Time to make this dataframe tidy!
 
 ```{r}
 lotr_tidy <- lotr_untidy %>% 
-  gather(key = 'Sex', value = 'Words', Female, Male)
+  pivot_longer(., names_to = "Sex", values_to = "Words", cols = Female:Male)
 
 lotr_tidy
 ```
@@ -110,9 +106,9 @@ Check out Jenny Bryan's [LOTR GitHub Repo](https://github.com/jennybc/lotr-tidy)
 format to the wide format. How would you convert the `lotr_tidy` dataframe back
 into the `lotr_untidy` dataframe?
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 lotr_untidy <- lotr_tidy %>% 
-   spread(key = "Sex", value = "Words")
+   pivot_wider(., names_from = Sex, values_from = Words)
 
 lotr_untidy
 ```
@@ -136,7 +132,7 @@ cases <- read.csv("../data/TB_cases.csv")
 SOLUTION:
 ```{r}
 cases_tidy <- cases %>% 
-  gather(key = "Year", value = "TB_cases", X2011:X2013) %>% 
+  pivot_longer(names_to = "Year", values_to = "TB_cases", X2011:X2013) %>% 
   group_by(country) %>% 
   summarise(sum(TB_cases))
 ```

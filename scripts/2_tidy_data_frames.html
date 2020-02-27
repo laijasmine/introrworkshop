@@ -512,9 +512,9 @@ summary {
 <p>Let’s read these dataframes in:</p>
 <pre class="r"><code>fship &lt;- read.csv(&quot;../data/The_Fellowship_Of_The_Ring.csv&quot;)
 
-ttow &lt;- read.csv(&quot;../data/The_Fellowship_Of_The_Ring.csv&quot;)
+ttow &lt;- read.csv(&quot;../data/The_Two_Towers.csv&quot;)
 
-rking &lt;- read.csv(&quot;../data/The_Fellowship_Of_The_Ring.csv&quot;)</code></pre>
+rking &lt;- read.csv(&quot;../data/The_Return_Of_The_King.csv&quot;)</code></pre>
 <p>Collect untidy dataframes into one dataframe:</p>
 <pre class="r"><code>lotr_untidy &lt;- dplyr::bind_rows(fship, ttow, rking)</code></pre>
 <p>This dataframe is still untidy because “word count” is spread out between two columns, <code>Male</code> and <code>Female</code>. So to make this dataframe tidy, we need to:</p>
@@ -528,37 +528,51 @@ rking &lt;- read.csv(&quot;../data/The_Fellowship_Of_The_Ring.csv&quot;)</code><
 </div>
 <p>Time to make this dataframe tidy!</p>
 <pre class="r"><code>lotr_tidy &lt;- lotr_untidy %&gt;% 
-  gather(key = 'Sex', value = 'Words', Female, Male)
+  pivot_longer(., names_to = &quot;Sex&quot;, values_to = &quot;Words&quot;, cols = Female:Male)
 
 lotr_tidy</code></pre>
-<pre><code>                         Film   Race    Sex Words
-1  The Fellowship Of The Ring    Elf Female  1229
-2  The Fellowship Of The Ring Hobbit Female    14
-3  The Fellowship Of The Ring    Man Female     0
-4  The Fellowship Of The Ring    Elf Female  1229
-5  The Fellowship Of The Ring Hobbit Female    14
-6  The Fellowship Of The Ring    Man Female     0
-7  The Fellowship Of The Ring    Elf Female  1229
-8  The Fellowship Of The Ring Hobbit Female    14
-9  The Fellowship Of The Ring    Man Female     0
-10 The Fellowship Of The Ring    Elf   Male   971
-11 The Fellowship Of The Ring Hobbit   Male  3644
-12 The Fellowship Of The Ring    Man   Male  1995
-13 The Fellowship Of The Ring    Elf   Male   971
-14 The Fellowship Of The Ring Hobbit   Male  3644
-15 The Fellowship Of The Ring    Man   Male  1995
-16 The Fellowship Of The Ring    Elf   Male   971
-17 The Fellowship Of The Ring Hobbit   Male  3644
-18 The Fellowship Of The Ring    Man   Male  1995</code></pre>
+<pre><code># A tibble: 18 x 4
+   Film                       Race   Sex    Words
+   &lt;chr&gt;                      &lt;fct&gt;  &lt;chr&gt;  &lt;int&gt;
+ 1 The Fellowship Of The Ring Elf    Female  1229
+ 2 The Fellowship Of The Ring Elf    Male     971
+ 3 The Fellowship Of The Ring Hobbit Female    14
+ 4 The Fellowship Of The Ring Hobbit Male    3644
+ 5 The Fellowship Of The Ring Man    Female     0
+ 6 The Fellowship Of The Ring Man    Male    1995
+ 7 The Two Towers             Elf    Female   331
+ 8 The Two Towers             Elf    Male     513
+ 9 The Two Towers             Hobbit Female     0
+10 The Two Towers             Hobbit Male    2463
+11 The Two Towers             Man    Female   401
+12 The Two Towers             Man    Male    3589
+13 The Return Of The King     Elf    Female   183
+14 The Return Of The King     Elf    Male     510
+15 The Return Of The King     Hobbit Female     2
+16 The Return Of The King     Hobbit Male    2673
+17 The Return Of The King     Man    Female   268
+18 The Return Of The King     Man    Male    2459</code></pre>
 <p>Want to see what else you can do with this dataset? Check out Jenny Bryan’s <a href="https://github.com/jennybc/lotr-tidy">LOTR GitHub Repo</a>!</p>
 </div>
 <div id="challenge-question-1" class="section level2">
 <h2>Challenge Question 1</h2>
 <p><code>spread()</code> is another tidyr function that converts a dataframe from the long format to the wide format. How would you convert the <code>lotr_tidy</code> dataframe back into the <code>lotr_untidy</code> dataframe?</p>
 <pre class="r"><code>lotr_untidy &lt;- lotr_tidy %&gt;% 
-   spread(key = &quot;Sex&quot;, value = &quot;Words&quot;)
+   pivot_wider(., names_from = Sex, values_from = Words)
 
 lotr_untidy</code></pre>
+<pre><code># A tibble: 9 x 4
+  Film                       Race   Female  Male
+  &lt;chr&gt;                      &lt;fct&gt;   &lt;int&gt; &lt;int&gt;
+1 The Fellowship Of The Ring Elf      1229   971
+2 The Fellowship Of The Ring Hobbit     14  3644
+3 The Fellowship Of The Ring Man         0  1995
+4 The Two Towers             Elf       331   513
+5 The Two Towers             Hobbit      0  2463
+6 The Two Towers             Man       401  3589
+7 The Return Of The King     Elf       183   510
+8 The Return Of The King     Hobbit      2  2673
+9 The Return Of The King     Man       268  2459</code></pre>
 </div>
 <div id="challenge-question-2" class="section level2">
 <h2>Challenge Question 2</h2>
@@ -567,7 +581,7 @@ lotr_untidy</code></pre>
 <pre class="r"><code>cases &lt;- read.csv(&quot;../data/TB_cases.csv&quot;)</code></pre>
 <p>SOLUTION:</p>
 <pre class="r"><code>cases_tidy &lt;- cases %&gt;% 
-  gather(key = &quot;Year&quot;, value = &quot;TB_cases&quot;, X2011:X2013) %&gt;% 
+  pivot_longer(names_to = &quot;Year&quot;, values_to = &quot;TB_cases&quot;, X2011:X2013) %&gt;% 
   group_by(country) %&gt;% 
   summarise(sum(TB_cases))</code></pre>
 </div>
