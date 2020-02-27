@@ -1,6 +1,8 @@
 # Intro R Workshop
 
-## http://tiny.cc/9zilkz
+
+### Short link for this page: http://tiny.cc/9zilkz
+
 
 **Thursday, March 5th, 9am-1pm**
 
