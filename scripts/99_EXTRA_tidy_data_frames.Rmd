@@ -2,10 +2,8 @@
 title: "Introduction to R and Some Best Practices Suggestions"
 author: "Amy Lee (@minisciencegirl) & Travis Blimkie"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output:
-  html_document:
-    toc: yes
-    code_folding: "show"
+output: learnr::tutorial
+runtime: shiny_prerendered
 ---
 
 ```{r setup, include = FALSE}
